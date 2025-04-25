@@ -1,0 +1,106 @@
+﻿using Enigma;
+using System;
+using System.Collections.Generic;
+
+#pragma warning disable CS8600, CS8602, CS8604
+
+// PARTIAL ERROR WITH DECODING - REFLECTION OR PLUGBOARD
+
+void ManualEnigma()
+{
+    EnigmaMachine EnigmaMachine = new EnigmaMachine();
+    // Choosing which three rotors to use
+    Console.WriteLine("Which three rotors would you like to use?");
+    for (int i = 0; i < EnigmaMachine.rotorSets.Length; i++)
+    {
+        Console.WriteLine($"{i + 1} - {EnigmaMachine.rotorSets[i]}");
+    }
+    List<int> chosenRotors = new List<int>()
+    {
+        Convert.ToInt32(Console.ReadLine()) - 1,
+        Convert.ToInt32(Console.ReadLine()) - 1,
+        Convert.ToInt32(Console.ReadLine()) - 1
+    };
+    Console.WriteLine();
+
+
+    // Setting the reflector plate
+    string reflectorSet = SymmetricReflectorPlateSetter();
+
+
+    // Choosing which letters to include in the plugboard
+    Console.WriteLine("Select up to 10 letters to enter into the plugboard");
+    char[] plugboardStart = Console.ReadLine().ToUpper().ToCharArray();
+    Console.WriteLine($"Select {plugboardStart.Length} letters to swap them with");
+    char[] plugboardEnd = Console.ReadLine().ToUpper().ToCharArray();
+    List<Tuple<char, char>> plugboardSettings = new List<Tuple<char, char>>();
+    for (int i = 0; i < plugboardStart.Length; i++)
+    {
+        plugboardSettings.Add(new Tuple<char, char>(plugboardStart[i], plugboardEnd[i]));
+    }
+    Console.WriteLine();
+
+
+    // Choosing the rotation of each rotor
+    Console.WriteLine("How many times should each rotor start rotated");
+    List<int> rotorStartPositions = new List<int>()
+    {
+        Convert.ToInt32(Console.ReadLine()),
+        Convert.ToInt32(Console.ReadLine()),
+        Convert.ToInt32(Console.ReadLine())
+    };
+    Console.WriteLine();
+
+
+    EnigmaMachine.ChangeMachineSettings(chosenRotors, reflectorSet, plugboardSettings, rotorStartPositions);
+
+
+    Console.WriteLine("Enter your message");
+    string message = Console.ReadLine().ToUpper();
+    string encryptedMessage = EnigmaMachine.EncryptMessage(message);
+    Console.WriteLine($"The encrypted form of your message is\n{encryptedMessage}");
+};
+
+string SymmetricReflectorPlateSetter()
+{
+    char[] reflectorPlate = new char[26];
+    Console.WriteLine("Enter 13 distinct letters");
+    char[] reflectorFirstHalf = Console.ReadLine()
+                                       .ToUpper()
+                                       .ToCharArray();
+    List<char> alphabet = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+    for (int i = 0; i < reflectorFirstHalf.Length; i++)
+    {
+        reflectorPlate[i] = reflectorFirstHalf[i];
+        int index = alphabet.IndexOf(reflectorFirstHalf[i]);
+        reflectorPlate[index] = alphabet[i];
+    }
+
+    Console.WriteLine();
+    return CharArrayToString(reflectorPlate);
+}
+
+string CharArrayToString(char[] charArray)
+        {
+    string returnString = "";
+    for (int i = 0; i < charArray.Length; i++)
+    {
+        returnString += charArray[i].ToString();
+    }
+
+    return returnString;
+}
+
+void JsonEnigma()
+{
+    JsonManipulation jsonManipulator = new JsonManipulation();
+    EnigmaJson enigmaJson = jsonManipulator.ReadJsonFile();
+    EnigmaMachine enigmaMachine = jsonManipulator.ReadJsonToEnigmaMachine(enigmaJson);
+    string message = jsonManipulator.ReadMessageFromJson(enigmaJson);
+    string encryptedMessage = enigmaMachine.EncryptMessage(message);
+    Console.WriteLine($"The encrypted form of your message is\n{encryptedMessage}");
+}
+
+ManualEnigma();
+//JsonEnigma();

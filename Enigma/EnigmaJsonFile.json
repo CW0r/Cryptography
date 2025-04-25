@@ -1,0 +1,28 @@
+﻿{
+  "chosenRotors": [
+    1,
+    2,
+    3
+  ],
+  "reflectorPlate": "QOZWSXNUKRIVTGBYAJEMHLDFPC",
+  "plugboardSettings": {
+    "plugboardFirstHalf": "ASDFGHJKLP",
+    "plugboardSecondHalf": "QWERTYUIOM"
+  },
+  "rotorPositions": {
+    "rotorOnePosition": 0,
+    "rotorTwoPosition": 0,
+    "rotorThreePosition": 0
+  },
+  "message": [
+    "GDVCQ",
+    "KIUWA",
+    "UCNUY",
+    "UDZNT",
+    "FYMSJ",
+    "DJPDH",
+    "TBCVB",
+    "ZHRLC",
+    "HCM"
+  ]
+}
