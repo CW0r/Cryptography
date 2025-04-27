@@ -65,16 +65,36 @@ string SymmetricReflectorPlateSetter()
 {
     char[] reflectorPlate = new char[26];
     Console.WriteLine("Enter 13 distinct letters");
-    char[] reflectorFirstHalf = Console.ReadLine()
+    char[] reflectorInputHalf = Console.ReadLine()
                                        .ToUpper()
                                        .ToCharArray();
-    List<char> alphabet = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
-    for (int i = 0; i < reflectorFirstHalf.Length; i++)
+    List<char> alphabet = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+    List<char> reflectorUnusedLetters = new List<char>(alphabet);
+
+    foreach (char letter in reflectorInputHalf)
     {
-        reflectorPlate[i] = reflectorFirstHalf[i];
-        int index = alphabet.IndexOf(reflectorFirstHalf[i]);
-        reflectorPlate[index] = alphabet[i];
+        reflectorUnusedLetters.Remove(letter);
+    }
+
+    /* Input - 13 char array
+     * Ouput - 26 char array
+     * 
+     * Create List<char> of unused letters
+     * Match next input char with next unused char
+     *  - iterate through input array
+     *  - take index of input char from alphabet and set
+     *  - take index of unused char from alphabet and set
+     *  - next
+     *  
+     */
+
+    for (int i = 0; i < reflectorInputHalf.Length; i++)
+    {
+        int indexOne = alphabet.IndexOf(reflectorInputHalf[i]);
+        int indexTwo = alphabet.IndexOf(reflectorUnusedLetters[i]);
+        reflectorPlate[indexOne] =reflectorUnusedLetters[i];
+        reflectorPlate[indexTwo] = reflectorInputHalf[i];
     }
 
     Console.WriteLine();
