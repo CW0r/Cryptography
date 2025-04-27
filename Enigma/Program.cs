@@ -70,6 +70,8 @@ string SymmetricReflectorPlateSetter()
                                        .ToCharArray();
 
     List<char> alphabet = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+    
+    // Generate a list of unused letters of non-input letters
     List<char> reflectorUnusedLetters = new List<char>(alphabet);
 
     foreach (char letter in reflectorInputHalf)
@@ -77,20 +79,10 @@ string SymmetricReflectorPlateSetter()
         reflectorUnusedLetters.Remove(letter);
     }
 
-    /* Input - 13 char array
-     * Ouput - 26 char array
-     * 
-     * Create List<char> of unused letters
-     * Match next input char with next unused char
-     *  - iterate through input array
-     *  - take index of input char from alphabet and set
-     *  - take index of unused char from alphabet and set
-     *  - next
-     *  
-     */
-
+ 
     for (int i = 0; i < reflectorInputHalf.Length; i++)
     {
+        // Take indexes of next letter in each list, and add each letter to the reflector using the other letter's index
         int indexOne = alphabet.IndexOf(reflectorInputHalf[i]);
         int indexTwo = alphabet.IndexOf(reflectorUnusedLetters[i]);
         reflectorPlate[indexOne] =reflectorUnusedLetters[i];
