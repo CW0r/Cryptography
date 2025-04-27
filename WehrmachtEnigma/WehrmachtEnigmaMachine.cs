@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Enigma;
+namespace WehrmachtEnigma;
 
 // Disables warning for reference of a potential null values
 #pragma warning disable CS8602
 
-public class EnigmaMachine
+public class WehrmachtEnigmaMachine
 {
     private const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public readonly string[] rotorSets = { "EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "JFPGQCNLSVAUEWKTORDMBZIXYH", "FRAOEGYVICSBWZKQPJXTHLUDMN" };

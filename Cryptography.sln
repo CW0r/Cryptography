@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma", "Enigma\Enigma.csproj", "{521537E4-1772-EB1D-73D6-A5B5D76134DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WehrmachtEnigma", "Enigma\WehrmachtEnigma.csproj", "{521537E4-1772-EB1D-73D6-A5B5D76134DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caeser Shift", "Caeser Shift\Caeser Shift.csproj", "{7DBAE625-8371-4A95-BA90-2A6F23F2E6E3}"
 EndProject

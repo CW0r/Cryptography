@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Enigma;
+namespace WehrmachtEnigma;
 
-public class EnigmaJson
+public class WehrmachtEnigmaJson
 {
     public List<int> chosenRotors { get; set; }
     public string reflectorPlate { get; set; }

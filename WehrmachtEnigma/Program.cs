@@ -1,4 +1,4 @@
-﻿using Enigma;
+﻿using WehrmachtEnigma;
 using System;
 using System.Collections.Generic;
 
@@ -8,12 +8,12 @@ using System.Collections.Generic;
 
 void ManualEnigma()
 {
-    EnigmaMachine EnigmaMachine = new EnigmaMachine();
+    WehrmachtEnigmaMachine WehrmachtEnigmaMachine = new WehrmachtEnigmaMachine();
     // Choosing which three rotors to use
     Console.WriteLine("Which three rotors would you like to use?");
-    for (int i = 0; i < EnigmaMachine.rotorSets.Length; i++)
+    for (int i = 0; i < WehrmachtEnigmaMachine.rotorSets.Length; i++)
     {
-        Console.WriteLine($"{i + 1} - {EnigmaMachine.rotorSets[i]}");
+        Console.WriteLine($"{i + 1} - {WehrmachtEnigmaMachine.rotorSets[i]}");
     }
     List<int> chosenRotors = new List<int>()
     {
@@ -52,12 +52,12 @@ void ManualEnigma()
     Console.WriteLine();
 
 
-    EnigmaMachine.ChangeMachineSettings(chosenRotors, reflectorSet, plugboardSettings, rotorStartPositions);
+    WehrmachtEnigmaMachine.ChangeMachineSettings(chosenRotors, reflectorSet, plugboardSettings, rotorStartPositions);
 
 
     Console.WriteLine("Enter your message");
     string message = Console.ReadLine().ToUpper();
-    string encryptedMessage = EnigmaMachine.EncryptMessage(message);
+    string encryptedMessage = WehrmachtEnigmaMachine.EncryptMessage(message);
     Console.WriteLine($"The encrypted form of your message is\n{encryptedMessage}");
 };
 
@@ -107,8 +107,8 @@ string CharArrayToString(char[] charArray)
 void JsonEnigma()
 {
     JsonManipulation jsonManipulator = new JsonManipulation();
-    EnigmaJson enigmaJson = jsonManipulator.ReadJsonFile();
-    EnigmaMachine enigmaMachine = jsonManipulator.ReadJsonToEnigmaMachine(enigmaJson);
+    WehrmachtEnigmaJson enigmaJson = jsonManipulator.ReadJsonFile();
+    WehrmachtEnigmaMachine enigmaMachine = jsonManipulator.ReadJsonToEnigmaMachine(enigmaJson);
     string message = jsonManipulator.ReadMessageFromJson(enigmaJson);
     string encryptedMessage = enigmaMachine.EncryptMessage(message);
     Console.WriteLine($"The encrypted form of your message is\n{encryptedMessage}");

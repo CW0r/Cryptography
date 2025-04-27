@@ -3,39 +3,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Enigma;
+namespace WehrmachtEnigma;
 
 // Disables warning for conversion of potential null value to non-nullable type
 #pragma warning disable CS8600
 
 public class JsonManipulation
 {    
-    public EnigmaMachine ReadJsonToEnigmaMachine(EnigmaJson enigmaJson)
+    public WehrmachtEnigmaMachine ReadJsonToEnigmaMachine(WehrmachtEnigmaJson enigmaJson)
     {
-        EnigmaMachine enigmaMachine = new EnigmaMachine();
+        WehrmachtEnigmaMachine wehrmachtEnigmaMachine = new WehrmachtEnigmaMachine();
 
         List<int> chosenRotors = ReadChosenRotors(enigmaJson.chosenRotors);
         List<Tuple<char, char>> plugboardSettings = ReadPlugboardSettings(enigmaJson.plugboardSettings);
         List<int> rotorStartPositions = ReadRotorPositions(enigmaJson.rotorPositions);
 
-        enigmaMachine.ChangeMachineSettings(chosenRotors, reflectorSet: enigmaJson.reflectorPlate, plugboardSettings, rotorStartPositions);
-        return enigmaMachine;
+        wehrmachtEnigmaMachine.ChangeMachineSettings(chosenRotors, reflectorSet: enigmaJson.reflectorPlate, plugboardSettings, rotorStartPositions);
+        return wehrmachtEnigmaMachine;
     }
 
-    public EnigmaJson ReadJsonFile()
+    public WehrmachtEnigmaJson ReadJsonFile()
     {
-        EnigmaJson enigmaJson = new EnigmaJson();
+        WehrmachtEnigmaJson enigmaJson = new WehrmachtEnigmaJson();
 
         using (StreamReader r = new StreamReader("..\\..\\..\\EnigmaJsonFile.json"))
         {
             string json = r.ReadToEnd();
-            enigmaJson = JsonSerializer.Deserialize<EnigmaJson>(json);
+            enigmaJson = JsonSerializer.Deserialize<WehrmachtEnigmaJson>(json);
         }
 
         return enigmaJson;
     }
 
-    public string ReadMessageFromJson(EnigmaJson enigmaJson)
+    public string ReadMessageFromJson(WehrmachtEnigmaJson enigmaJson)
     {
         string message = string.Join("", enigmaJson.message);
         return message;
@@ -43,7 +43,7 @@ public class JsonManipulation
 
     public void WriteEnigmaMachineToJson()
     {
-        EnigmaJson json = new EnigmaJson();
+        WehrmachtEnigmaJson json = new WehrmachtEnigmaJson();
 
 
         string jsonString = JsonSerializer.Serialize(json, new JsonSerializerOptions { WriteIndented = true });
