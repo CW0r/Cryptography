@@ -11,5 +11,6 @@ For manual operation, the following features are active:
   - Any number from 0-25 can be used as the starting rotation of each rotor, providing 17,576 starting positions
 - Plugboard setting
   - Up to 10 letters can be chosen for each half of the plugboard, resulting in 150,738,274,937,250 possible combinations
-All of these combinations combine to provide 158,962,555,217,826,360,000 possible settings
-This is 158 quintillion, 962 quadrillion, 555 trillion, 217 billion, 826 million, 360 thousand
+
+All of these combinations combine to provide 158,962,555,217,826,360,000 possible settings  
+This is 158 quintillion, 962 quadrillion, 555 trillion, 217 billion, 826 million, 360 thousand settings
