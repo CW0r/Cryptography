@@ -3,24 +3,29 @@ using System.Collections.Generic;
 
 namespace KriegsmarineEnigma;
 
+#pragma warning disable CS8602
+
 public class KriegsmarineEnigmaMachine
 {
     private const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public readonly string[] rotorSets = { "TSLMQIYXWGVNAHKZPODFEUBCJR", "SMZQUIPBATYDWKHGRJFNXLOCEV", "NVISLTZOQDKCRHUPXAMBWYGFJE", "BQZFXDSYAGUOCWEJMLNHTKIPVR", "YTWQIMRSLFZXDBKAVJPNEOHCUG", "UWBPVFTQIJEKSXCZHGRALYDMNO", "KSEVXFTGDIWQCLAZURYJHPBOMN", "VKEWCUDPQBIRZSFNOLHJXAMGTY" };
+    public readonly string[] staticRotorSets = { "JVPLWNRSZDTOGBIHXFUEYKQAMC", "PUXNIASVEGDBJWCRFOMYTKHQZL" };
     private List<string> rotors = new List<string>();
+    private string? staticRotor;
     private string? reflectorPlate;
     private Dictionary<char, char>? plugboardConnections;
     private List<int>? rotorPositions;
 
     public void ChangeMachineSettings(List<int> chosenRotors, string reflectorSet, List<Tuple<char, char>> plugboardSettings, List<int> rotorStartPositions)
     {
-        foreach (int index in chosenRotors)
+        for (int i = 0; i < chosenRotors.Count - 1; i++)
         {
-            rotors.Add(rotorSets[index]);
+            rotors.Add(rotorSets[i]);
         }
         reflectorPlate = reflectorSet;
         plugboardConnections = CreatePlugboard(plugboardSettings);
         rotorPositions = rotorStartPositions;
+        staticRotor = staticRotorSets[chosenRotors[^1]];
     }
 
     private Dictionary<char, char> CreatePlugboard(List<Tuple<char, char>> plugboardSettings)
@@ -64,7 +69,11 @@ public class KriegsmarineEnigmaMachine
             letter = Convert.ToChar(currentRotor[index]);
         }
 
+        //letter = staticRotor[(alphabet.IndexOf(letter) + rotorPositions[^1]) % 26];
+
         letter = reflectorPlate[alphabet.IndexOf(letter)];
+
+        //letter = alphabet[(staticRotor.IndexOf(letter)) % 26];
 
         for (int i = rotors.Count - 1; i >= 0; i--)
         {
