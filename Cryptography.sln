@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WehrmachtEnigma", "Enigma\WehrmachtEnigma.csproj", "{521537E4-1772-EB1D-73D6-A5B5D76134DA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caeser Shift", "Caeser Shift\Caeser Shift.csproj", "{7DBAE625-8371-4A95-BA90-2A6F23F2E6E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vigenere", "Vigenere\Vigenere.csproj", "{35B5BE55-4172-4BFB-BC4F-B786A545D15D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substitution", "Substitution\Substitution.csproj", "{1242632F-A9AE-4449-B6C3-04A64F70046C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WehrmachtEnigma", "WehrmachtEnigma\WehrmachtEnigma.csproj", "{F7B33238-FF59-2C59-9C04-FA7470A42041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KreigsmarineEnigma", "KreigsmarineEnigma\KreigsmarineEnigma.csproj", "{7EE88CD4-5831-429B-890C-8F7C4BE84363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{521537E4-1772-EB1D-73D6-A5B5D76134DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{521537E4-1772-EB1D-73D6-A5B5D76134DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{521537E4-1772-EB1D-73D6-A5B5D76134DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{521537E4-1772-EB1D-73D6-A5B5D76134DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DBAE625-8371-4A95-BA90-2A6F23F2E6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7DBAE625-8371-4A95-BA90-2A6F23F2E6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DBAE625-8371-4A95-BA90-2A6F23F2E6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{1242632F-A9AE-4449-B6C3-04A64F70046C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1242632F-A9AE-4449-B6C3-04A64F70046C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1242632F-A9AE-4449-B6C3-04A64F70046C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7B33238-FF59-2C59-9C04-FA7470A42041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B33238-FF59-2C59-9C04-FA7470A42041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B33238-FF59-2C59-9C04-FA7470A42041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B33238-FF59-2C59-9C04-FA7470A42041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
