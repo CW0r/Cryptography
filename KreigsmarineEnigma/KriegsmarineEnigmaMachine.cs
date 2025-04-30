@@ -69,16 +69,16 @@ public class KriegsmarineEnigmaMachine
             letter = Convert.ToChar(currentRotor[index]);
         }
 
-        //letter = staticRotor[(alphabet.IndexOf(letter) + rotorPositions[^1]) % 26];
+        letter = staticRotor[(alphabet.IndexOf(letter) + rotorPositions[^1]) % 26];
 
         letter = reflectorPlate[alphabet.IndexOf(letter)];
 
-        //letter = alphabet[(staticRotor.IndexOf(letter)) % 26];
+        letter = alphabet[((staticRotor.IndexOf(letter)) - rotorPositions[^1] + 26) % 26];
 
         for (int i = rotors.Count - 1; i >= 0; i--)
         {
             string currentRotor = rotors[i];
-            int index = ((currentRotor.IndexOf(letter)) + rotorPositions[i]) % 26;
+            int index = ((currentRotor.IndexOf(letter)) - rotorPositions[i] + 26) % 26;
             letter = alphabet[index];
         }
 

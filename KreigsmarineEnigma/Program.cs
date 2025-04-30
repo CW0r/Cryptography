@@ -29,6 +29,7 @@ void ManualEnigma()
         Console.WriteLine($"{i + 1} - {KriegsmarineEnigmaMachine.staticRotorSets[i]}");
     }
     chosenRotors.Add(Convert.ToInt32(Console.ReadLine()) - 1);
+    Console.WriteLine();
 
     // Setting the reflector plate
     string reflectorSet = SymmetricReflectorPlateSetter();
