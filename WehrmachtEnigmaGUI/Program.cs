@@ -9,7 +9,7 @@ namespace WeGUI
         {
             NativeWindowSettings nativeWindowsSettings = new NativeWindowSettings()
             {
-                ClientSize = new Vector2i(1000, 800),
+                ClientSize = new Vector2i(1500, 900),
                 Title = "Wehrmacht Enigma Machine"
             };
 
