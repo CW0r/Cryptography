@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WehrmachtEnigma", "Wehrmach
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KreigsmarineEnigma", "KreigsmarineEnigma\KreigsmarineEnigma.csproj", "{7EE88CD4-5831-429B-890C-8F7C4BE84363}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WehrmachtEnigmaGUI", "WehrmachtEnigmaGUI\WehrmachtEnigmaGUI.csproj", "{CC27BF98-0FFE-4086-82FB-57D1566F30EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE88CD4-5831-429B-890C-8F7C4BE84363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC27BF98-0FFE-4086-82FB-57D1566F30EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC27BF98-0FFE-4086-82FB-57D1566F30EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC27BF98-0FFE-4086-82FB-57D1566F30EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC27BF98-0FFE-4086-82FB-57D1566F30EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
