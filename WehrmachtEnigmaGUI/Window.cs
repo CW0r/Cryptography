@@ -10,14 +10,30 @@ namespace WeGUI
 {
     public class Window : GameWindow
     {
+        /*   0 ---- 1
+         *   |     /|
+         *   |    / |
+         *   |   /  |
+         *   |  /   |
+         *   | /    |
+         *   |/     |
+         *   2 ---- 3
+         *   |     /|
+         *   |    / |
+         *   |   /  |
+         *   |  /   |
+         *   | /    |
+         *   |/     |
+         *   4 ---- 5
+         */
         private readonly float[] _verticesRectangle =
         {
-            -0.6f,  0.6f, 0.0f,  1.0f, 0.0f, 0.0f, // Top Left     - 0
-             0.6f,  0.6f, 0.0f,  1.0f, 0.0f, 0.0f, // Top right    - 1
-            -0.6f, -0.1f, 0.0f,  0.0f, 1.0f, 0.0f, // Middle left  - 2
-             0.6f, -0.1f, 0.0f,  0.0f, 1.0f, 0.0f, // Middle right - 3
-            -0.6f, -0.6f, 0.0f,  0.0f, 0.0f, 1.0f, // Bottom left  - 4
-             0.6f, -0.6f, 0.0f,  0.0f, 0.0f, 1.0f  // Bottom right - 5
+            -0.6f,  0.6f, 0.0f,  1.0f, 0.0f, 0.0f, // Top Left     - 0  - Red
+             0.6f,  0.6f, 0.0f,  1.0f, 0.0f, 0.0f, // Top right    - 1  - Red
+            -0.6f, -0.1f, 0.0f,  0.0f, 1.0f, 0.0f, // Middle left  - 2  - Green
+             0.6f, -0.1f, 0.0f,  0.0f, 1.0f, 0.0f, // Middle right - 3  - Green
+            -0.6f, -0.6f, 0.0f,  0.0f, 0.0f, 1.0f, // Bottom left  - 4  - Blue
+             0.6f, -0.6f, 0.0f,  0.0f, 0.0f, 1.0f  // Bottom right - 5  - Blue
         };
 
         private float[] _verticesTriangle =
