@@ -157,5 +157,13 @@ namespace WeGUI
 
             GL.Viewport(0, 0, Size.X, Size.Y);
         }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+
+            _shaderRectangle.Dispose();
+            _shaderTriangle.Dispose();
+        }
     }
 }

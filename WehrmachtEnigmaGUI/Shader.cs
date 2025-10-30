@@ -15,6 +15,8 @@ namespace WeGUI.Shaders
         // Uniform key/locations - Full Scope
         private readonly Dictionary<string, int> _uniformLocations;
 
+        private bool disposed = false;
+
         public Shader(string vertPath, string fragPath)
         {
             // Vertex Shader intialisation - Constructor Scope
@@ -131,6 +133,30 @@ namespace WeGUI.Shaders
         {
             GL.UseProgram(Handle);
             GL.Uniform3(_uniformLocations[name], data);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing)
+            {
+                GL.DeleteProgram(Handle);
+
+                disposed = true;
+            }
+        }
+
+        ~Shader()
+        {
+            if (disposed == false)
+            {
+                Console.WriteLine("GPU Memory Leak Detected");
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
