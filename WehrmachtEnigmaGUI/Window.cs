@@ -118,7 +118,7 @@ namespace WeGUI
             _shaderRectangle = new Shader("Shaders/shaderRect.vert", "Shaders/shaderRect.frag");
             _shaderTriangle = new Shader("Shaders/shaderTri.vert", "Shaders/shaderTri.frag");
 
-            _shaderRectangle.Use();
+            //_shaderRectangle.Use();
             _shaderTriangle.Use();
 
             _stopwatch = new Stopwatch();
@@ -132,7 +132,7 @@ namespace WeGUI
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            _shaderRectangle.Use();
+            //_shaderRectangle.Use();
             Debug.WriteLine("Rectangle");
 
             // Rectangle
@@ -141,6 +141,7 @@ namespace WeGUI
             GL.DrawElements(PrimitiveType.Triangles, _indicesRectangle.Length, DrawElementsType.UnsignedInt, 0);
 
             // Triangle
+            GL.Clear(ClearBufferMask.ColorBufferBit);
 
             _shaderTriangle.Use();
             Debug.WriteLine("Triangle");
@@ -148,8 +149,11 @@ namespace WeGUI
             float redValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
             float greenValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
             float blueValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
+            Debug.WriteLine(redValue);
+            Debug.WriteLine(greenValue);
+            Debug.WriteLine(blueValue);
             int vertexColorLocation = GL.GetUniformLocation(_shaderTriangle.Handle, "inColor");
-            GL.Uniform4(vertexColorLocation, redValue, greenValue, blueValue, 1.0f);
+            GL.Uniform4(vertexColorLocation, redValue, greenValue, blueValue, 0.25f);
 
             GL.BindVertexArray(_vertexArrayObjectTriangle);
             GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
