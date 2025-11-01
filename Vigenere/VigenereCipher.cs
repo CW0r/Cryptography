@@ -61,7 +61,7 @@ namespace Vigenere
             int keyValue = BaseAlphabet.IndexOf(keyChar);
             int index = (BaseAlphabet.IndexOf(cipherTextChar) -  keyValue) % 26;
             char plainTextChar = BaseAlphabet[index];
-            return cipherTextChar;
+            return plainTextChar;
         }
     }
 }

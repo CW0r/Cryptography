@@ -1,9 +1,41 @@
 ﻿using System;
 
+#pragma warning disable CS8600
+#pragma warning disable CS8602
 
 namespace Vigenere
 {
     internal class Program
     {
+        static void Main()
+        {
+            VigenereCipher vigenereCipher = new VigenereCipher();
+            string? plaintextMessage, cipherKey;
+
+            Console.WriteLine("Would you like to encode or decode a message?\n1 - Encode\n2 - Decode");
+            int input = Convert.ToInt32(Console.ReadLine());
+            switch (input)
+            {
+                case 1:
+                    Console.WriteLine("\nInput the message you want to encode:");
+                    plaintextMessage = Console.ReadLine();
+                    Console.WriteLine("\nInput the cipher key");
+                    cipherKey = Console.ReadLine();
+                    string encodedMessage = vigenereCipher.EncodeMessage(plaintextMessage.ToUpper(), cipherKey.ToUpper());
+                    Console.WriteLine($"\n\nThe encode message is: {encodedMessage}");
+                    break;
+                case 2:
+                    Console.WriteLine("\nInput the message you want to encode:");
+                    encodedMessage = Console.ReadLine();
+                    Console.WriteLine("\nInput the cipher key");
+                    cipherKey = Console.ReadLine();
+                    plaintextMessage = vigenereCipher.DecodeMessage(encodedMessage.ToUpper(), cipherKey.ToUpper());
+                    Console.WriteLine($"\n\nThe encode message is: {plaintextMessage}");
+                    break;
+                default:
+                    Console.WriteLine("I'm sorry, that's not an option");
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }
