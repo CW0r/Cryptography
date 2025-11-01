@@ -1,4 +1,6 @@
-﻿namespace Caeser_Shift
+﻿using System;
+
+namespace Caeser_Shift
 {
     internal class Program
     {

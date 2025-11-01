@@ -1,4 +1,6 @@
-﻿namespace Substitution
+﻿using System;
+
+namespace Substitution
 {
     internal class Program
     {

@@ -1,9 +1,9 @@
-﻿namespace Vigenere;
+﻿using System;
 
-internal class Program
+
+namespace Vigenere
 {
-    static void Main()
+    internal class Program
     {
-        
     }
 }
