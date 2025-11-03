@@ -7,3 +7,4 @@ A repository for various algorithms of historic cryptographic methods, all writt
 - Substitution cipher
 - Vigenère cipher
 - [Wehrmacht Enigma Machine](WEHRMACHT_ENIGMA.md)
+- [Kreigsmarine Enigma Machine](KRIEGSMARINE_ENIGMA.md)
