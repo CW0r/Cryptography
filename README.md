@@ -6,4 +6,5 @@ A repository for various algorithms of historic cryptographic methods, all writt
 - Caesar shift cipher
 - Substitution cipher
 - Vigenère cipher
-- [Wehrmacht Enigma Machine](WEHRMACHT_ENIGMA.md)
+- [Wehrmacht Enigma Machine](WEHRMACHTENIGMA.md)
+- [Kreigsmarine Enigma Machine](KRIEGSMARINEENIGMA.md)
