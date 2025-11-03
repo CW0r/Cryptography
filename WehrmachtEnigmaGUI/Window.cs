@@ -118,7 +118,7 @@ namespace WeGUI
             _shaderRectangle = new Shader("Shaders/shaderRect.vert", "Shaders/shaderRect.frag");
             _shaderTriangle = new Shader("Shaders/shaderTri.vert", "Shaders/shaderTri.frag");
 
-            //_shaderRectangle.Use();
+            _shaderRectangle.Use();
             _shaderTriangle.Use();
 
             _stopwatch = new Stopwatch();
@@ -132,7 +132,7 @@ namespace WeGUI
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            //_shaderRectangle.Use();
+            _shaderRectangle.Use();
             Debug.WriteLine("Rectangle");
 
             // Rectangle
@@ -141,7 +141,6 @@ namespace WeGUI
             GL.DrawElements(PrimitiveType.Triangles, _indicesRectangle.Length, DrawElementsType.UnsignedInt, 0);
 
             // Triangle
-            GL.Clear(ClearBufferMask.ColorBufferBit);
 
             _shaderTriangle.Use();
             Debug.WriteLine("Triangle");
