@@ -108,4 +108,9 @@ public class WehrmachtEnigmaMachine
 
         return encryptedMessage;
     }
+
+    public List<int> GetCurrentRotorPositions()
+    {
+        return rotorPositions;
+    }
 }
