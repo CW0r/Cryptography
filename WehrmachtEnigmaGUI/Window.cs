@@ -151,7 +151,7 @@ namespace WeGUI
             Debug.WriteLine(redValue);
             Debug.WriteLine(greenValue);
             Debug.WriteLine(blueValue);
-            int vertexColorLocation = GL.GetUniformLocation(_shaderTriangle.Handle, "inColor");
+            int vertexColorLocation = GL.GetUniformLocation(_shaderTriangle.Handle, "colorIn");
             GL.Uniform4(vertexColorLocation, redValue, greenValue, blueValue, 0.25f);
 
             GL.BindVertexArray(_vertexArrayObjectTriangle);
