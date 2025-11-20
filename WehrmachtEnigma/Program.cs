@@ -55,8 +55,8 @@ void ManualEnigma()
 
     Console.WriteLine("Enter your message");
     string message = Console.ReadLine().ToUpper();
-    string encryptedMessage = WehrmachtEnigmaMachine.EncryptMessage(message);
-    Console.WriteLine($"The encrypted form of your message is\n{encryptedMessage}");
+    List<string> encryptedMessage = WehrmachtEnigmaMachine.EncryptMessage(message);
+    Console.WriteLine($"The encrypted form of your message is\n{string.Join(" ", encryptedMessage)}");
 };
 
 string SymmetricReflectorPlateSetter()
@@ -108,8 +108,8 @@ void JsonEnigma()
     WehrmachtEnigmaJson enigmaJson = jsonManipulator.ReadJsonFile();
     WehrmachtEnigmaMachine enigmaMachine = jsonManipulator.ReadJsonToEnigmaMachine(enigmaJson);
     string message = jsonManipulator.ReadMessageFromJson(enigmaJson);
-    string encryptedMessage = enigmaMachine.EncryptMessage(message);
-    Console.WriteLine($"The encrypted form of your message is\n{encryptedMessage}");
+    List<string> encryptedMessage = enigmaMachine.EncryptMessage(message);
+    Console.WriteLine($"The encrypted form of your message is\n{string.Join(" ")}");
 }
 
 ManualEnigma();

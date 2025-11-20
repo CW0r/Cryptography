@@ -83,7 +83,27 @@ public class WehrmachtEnigmaMachine
         return letter;
     }
 
-    public string EncryptMessage(string message)
+    public List<string> EncryptedMessageSplit(string encryptedMessage)
+    {
+        List<string> encryptedMessageParts = new List<string>();
+        string currentPart = "";
+        foreach (char letter in encryptedMessage)
+        {
+            currentPart += letter;
+            if (currentPart.Length == 5)
+            {
+                encryptedMessageParts.Add(currentPart);
+                currentPart = "";
+            }
+        }
+        if (currentPart.Length > 0)
+        {
+            encryptedMessageParts.Add(currentPart);
+        }
+        return encryptedMessageParts;
+    }
+
+    public List<string> EncryptMessage(string message)
     {
         List<char> encryptedCharacters = new List<char>();
         string encryptedMessage = "";
@@ -106,7 +126,9 @@ public class WehrmachtEnigmaMachine
             encryptedMessage += character;
         }
 
-        return encryptedMessage;
+        List<string> encryptedMessageList = EncryptedMessageSplit(encryptedMessage);
+
+        return encryptedMessageList;
     }
 
     public List<int> GetCurrentRotorPositions()
