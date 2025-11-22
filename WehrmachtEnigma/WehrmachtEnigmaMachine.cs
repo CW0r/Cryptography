@@ -8,28 +8,28 @@ namespace WehrmachtEnigma;
 
 public class WehrmachtEnigmaMachine
 {
-    private const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public readonly string[] rotorSets = { "EKMFLGDQVZNTOWYHXUSPAIBRCJ", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "JFPGQCNLSVAUEWKTORDMBZIXYH", "FRAOEGYVICSBWZKQPJXTHLUDMN" };
-    private List<string> rotors = new List<string>();
-    private string? reflectorPlate;
-    private Dictionary<char, char>? plugboardConnections;
-    private List<int>? rotorPositions;
+    private List<string> _rotors = new List<string>();
+    private string? _reflectorPlate;
+    private Dictionary<char, char>? _plugboardConnections;
+    private List<int>? _rotorPositions;
 
     public void ChangeMachineSettings(List<int> chosenRotors, string reflectorSet, List<Tuple<char, char>> plugboardSettings, List<int> rotorStartPositions)
     {
         foreach (int index in chosenRotors)
         {
-            rotors.Add(rotorSets[index]);
+            _rotors.Add(rotorSets[index]);
         }
-        reflectorPlate = reflectorSet;
-        plugboardConnections = CreatePlugboard(plugboardSettings);
-        rotorPositions = rotorStartPositions;
+        _reflectorPlate = reflectorSet;
+        _plugboardConnections = CreatePlugboard(plugboardSettings);
+        _rotorPositions = rotorStartPositions;
     }
 
     private Dictionary<char, char> CreatePlugboard(List<Tuple<char, char>> plugboardSettings)
     {
         Dictionary<char, char> plugboard = new Dictionary<char, char>();
-        foreach (char letter in alphabet)
+        foreach (char letter in Alphabet)
         {
             plugboard.Add(letter, letter);
         }
@@ -47,36 +47,36 @@ public class WehrmachtEnigmaMachine
 
     private void RotateRotors()
     {
-        rotorPositions[0] = (rotorPositions[0] + 1) % 26;
-        if (rotorPositions[0] != 0) return;
+        _rotorPositions[0] = (_rotorPositions[0] + 1) % 26;
+        if (_rotorPositions[0] != 0) return;
 
-        rotorPositions[1] = (rotorPositions[1] + 1) % 26;
-        if (rotorPositions[1] != 0) return;
+        _rotorPositions[1] = (_rotorPositions[1] + 1) % 26;
+        if (_rotorPositions[1] != 0) return;
 
-        rotorPositions[2] = (rotorPositions[2] + 1) % 26;
+        _rotorPositions[2] = (_rotorPositions[2] + 1) % 26;
     }
 
     private char EncryptLetter(char letter)
     {
-        letter = plugboardConnections[letter];
+        letter = _plugboardConnections[letter];
 
-        for (int i = 0; i < rotors.Count; i++)
+        for (int i = 0; i < _rotors.Count; i++)
         {
-            string currentRotor = rotors[i];
-            int index = ((alphabet.IndexOf(letter)) + rotorPositions[i]) % 26;
+            string currentRotor = _rotors[i];
+            int index = ((Alphabet.IndexOf(letter)) + _rotorPositions[i]) % 26;
             letter = Convert.ToChar(currentRotor[index]);
         }
 
-        letter = reflectorPlate[alphabet.IndexOf(letter)];
+        letter = _reflectorPlate[Alphabet.IndexOf(letter)];
 
-        for (int i = rotors.Count - 1; i >= 0; i--)
+        for (int i = _rotors.Count - 1; i >= 0; i--)
         {
-            string currentRotor = rotors[i];
-            int index = ((currentRotor.IndexOf(letter) - rotorPositions[i]) + 26) % 26;
-            letter = alphabet[index];
+            string currentRotor = _rotors[i];
+            int index = ((currentRotor.IndexOf(letter) - _rotorPositions[i]) + 26) % 26;
+            letter = Alphabet[index];
         }
 
-        letter = plugboardConnections[letter];
+        letter = _plugboardConnections[letter];
 
         RotateRotors();
 
@@ -110,7 +110,7 @@ public class WehrmachtEnigmaMachine
 
         foreach (char letter in message)
         {
-            if (alphabet.Contains(letter))
+            if (Alphabet.Contains(letter))
             {
                 char encryptedLetter = EncryptLetter(letter);
                 encryptedCharacters.Add(encryptedLetter);
@@ -133,6 +133,6 @@ public class WehrmachtEnigmaMachine
 
     public List<int> GetCurrentRotorPositions()
     {
-        return rotorPositions;
+        return _rotorPositions;
     }
 }
