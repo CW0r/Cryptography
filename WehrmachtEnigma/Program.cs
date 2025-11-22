@@ -92,7 +92,7 @@ string SymmetricReflectorPlateSetter()
 }
 
 string CharArrayToString(char[] charArray)
-        {
+{
     string returnString = "";
     for (int i = 0; i < charArray.Length; i++)
     {
