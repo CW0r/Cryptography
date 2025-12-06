@@ -36,14 +36,26 @@ namespace Vigenere
             return cipherTextChar;
         }
 
-        public string DecodeMessage(string cipherTextMessage, string cipherKey)
+        private Tuple<string, List<int>> RemoveSpaces(string message)
         {
-            int keyLength = cipherKey.Length;
-            string plainTextMesssage = "";
-            for (int i = 0; i < cipherTextMessage.Length; i++)
+            string messageWithoutSpaces = "";
+            List<int> spaceIndices = new List<int>();
+            int length = message.Length;
+            for (int i = 0; i < length; i++)
             {
-                int keyIndex = i % keyLength;
-                if (cipherTextMessage[i] == ' ')
+                if (message[i] == ' ')
+                {
+                    spaceIndices.Add(i);
+                }
+                else
+                {
+                    messageWithoutSpaces += message[i];
+                }
+            }
+
+            return new Tuple<string, List<int>>(messageWithoutSpaces, spaceIndices);
+        }
+
                 {
                     plainTextMesssage += " ";
                 }
