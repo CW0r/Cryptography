@@ -22,15 +22,15 @@ namespace Vigenere
                     Console.WriteLine("\nInput the cipher key");
                     cipherKey = Console.ReadLine();
                     string encodedMessage = vigenereCipher.EncodeMessage(plaintextMessage.ToUpper(), cipherKey.ToUpper());
-                    Console.WriteLine($"\n\nThe encode message is: {encodedMessage}");
+                    Console.WriteLine($"\n\nThe encoded message is: {encodedMessage}");
                     break;
                 case 2:
-                    Console.WriteLine("\nInput the message you want to encode:");
+                    Console.WriteLine("\nInput the message you want to decode:");
                     encodedMessage = Console.ReadLine();
                     Console.WriteLine("\nInput the cipher key");
                     cipherKey = Console.ReadLine();
                     plaintextMessage = vigenereCipher.DecodeMessage(encodedMessage.ToUpper(), cipherKey.ToUpper());
-                    Console.WriteLine($"\n\nThe encode message is: {plaintextMessage}");
+                    Console.WriteLine($"\n\nThe plaintext message is: {plaintextMessage}");
                     break;
                 default:
                     Console.WriteLine("I'm sorry, that's not an option");
