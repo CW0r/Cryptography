@@ -97,7 +97,7 @@ namespace Vigenere
         private char DecodeCharacter(char cipherTextChar, char keyChar)
         {
             int keyValue = BaseAlphabet.IndexOf(keyChar);
-            int index = (BaseAlphabet.IndexOf(cipherTextChar) -  keyValue) % 26;
+            int index = ((BaseAlphabet.IndexOf(cipherTextChar) -  keyValue) + 26) % 26;
             char plainTextChar = BaseAlphabet[index];
             return plainTextChar;
         }
