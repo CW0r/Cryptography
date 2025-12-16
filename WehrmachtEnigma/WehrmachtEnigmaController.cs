@@ -58,6 +58,7 @@ namespace WehrmachtEnigma
             string message = Console.ReadLine().ToUpper();
             List<string> encryptedMessage = WehrmachtEnigmaMachine.EncryptMessage(message);
             Console.WriteLine($"The encrypted form of your message is\n{string.Join(" ", encryptedMessage)}");
+            Console.ReadKey();
         }
 
         private string SymmetricReflectorPlateSetter()
