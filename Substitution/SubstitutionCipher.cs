@@ -14,6 +14,11 @@ namespace Substitution
 
             for (int i = 0; i < plainText.Length; i++)
             {
+                if (plainText[i] == ' ')
+                {
+                    cipherText[i] = ' ';
+                    continue;
+                }
                 int index = BaseAlphabet.IndexOf(plainText[i]);
                 cipherText[i] = KeyAlphabet[index];
             }
@@ -29,8 +34,13 @@ namespace Substitution
 
             for (int i = 0; i < cipherText.Length; i++)
             {
-                int index = KeyAlphabet.IndexOf(cipherText[i]);
-                plainText[i] = BaseAlphabet[index];
+                if (cipherText[i] == ' ')
+                {
+                    plainText[i] = ' ';
+                    continue;
+                }
+                int index = BaseAlphabet.IndexOf(cipherText[i]);
+                plainText[i] = KeyAlphabet[index];
             }
 
             return CharArrayToString(plainText);
