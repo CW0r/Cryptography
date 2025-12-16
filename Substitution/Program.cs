@@ -33,6 +33,7 @@ namespace Substitution
                     Console.WriteLine("I'm sorry, that's not an option");
                     throw new ArgumentOutOfRangeException();
             }
+            Console.ReadKey();
         }
     }
 }
