@@ -111,7 +111,7 @@ namespace WehrmachtEnigma
             WehrmachtEnigmaMachine enigmaMachine = jsonManipulator.ReadJsonToEnigmaMachine(enigmaJson);
             string message = jsonManipulator.ReadMessageFromJson(enigmaJson);
             List<string> encryptedMessage = enigmaMachine.EncryptMessage(message);
-            Console.WriteLine($"The encrypted form of your message is\n{string.Join(" ")}");
+            Console.WriteLine($"The encrypted form of your message is\n{string.Join<string>(' ', encryptedMessage)}");
         }
     }
 }
