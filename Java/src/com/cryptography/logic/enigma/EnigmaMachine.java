@@ -65,4 +65,19 @@ public abstract class EnigmaMachine {
     }
 
     protected abstract char encryptLetter(char letter);
-};
+
+    protected boolean isNotched(int rotorIndex) {
+        int rotor = _chosenRotors[rotorIndex];
+        int position = _rotorPositions[rotorIndex];
+
+        return switch (rotor) {
+            case 0 -> position == 17;
+            case 1 -> position == 5;
+            case 2 -> position == 22;
+            case 3 -> position == 10;
+            case 4 -> position == 0;
+            case 5, 6, 7 -> position == 0 || position == 13;
+            default -> false;
+        };
+    }
+}
