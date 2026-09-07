@@ -11,7 +11,6 @@ public abstract class EnigmaMachine {
     protected String _reflectorPlate;
     protected HashMap<Character, Character> _plugboardConnections;
     protected Integer[] _rotorPositions;
-    protected Integer[] _rotorNotchPositions;
     protected Integer[] _chosenRotors;
 
     protected void changeMachineSettings(String reflectorSet, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
@@ -40,10 +39,10 @@ public abstract class EnigmaMachine {
 
     protected void rotateRotors() {
         _rotorPositions[0] = (_rotorPositions[0] + 1) % 26;
-        if (!_rotorPositions[0].equals(_rotorNotchPositions[0])) return;
+        if (!isNotched(0)) return;
 
         _rotorPositions[1] = (_rotorPositions[1] + 1) % 26;
-        if (!_rotorPositions[1].equals(_rotorNotchPositions[1])) return;
+        if (!isNotched(1)) return;
 
         _rotorPositions[2] = (_rotorPositions[2] + 1) % 26;
     }
