@@ -20,16 +20,10 @@ public class ArmyEnigma extends EnigmaMachine {
             "FVPJIAOYEDRZXWGCTKUQSBNMHL"
     };
 
-    public void changeMachineSettings(
-            int chosenReflector,
-            ArrayList<Tuple2<Character, Character>> plugboardSettings,
-            Integer[] rotorStartPositions,
-            Integer[] chosenMovingRotors
-    )
-    {
-        super.changeMachineSettings(ReflectorPlateSets[chosenReflector], plugboardSettings, rotorStartPositions);
+    public void changeMachineSettings(int chosenReflector, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
+        super.changeMachineSettings(ReflectorPlateSets[chosenReflector], plugboardSettings, rotorStartPositions, chosenRotors);
 
-        for (int i : chosenMovingRotors)
+        for (int i : chosenRotors)
             _rotors.add(RotorSets[i]);
     }
 

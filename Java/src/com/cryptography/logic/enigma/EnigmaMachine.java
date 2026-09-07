@@ -13,12 +13,7 @@ public abstract class EnigmaMachine {
     protected Integer[] _rotorPositions;
     protected Integer[] _rotorNotchPositions;
 
-    protected void changeMachineSettings(
-            String reflectorSet,
-            ArrayList<Tuple2<Character, Character>> plugboardSettings,
-            Integer[] rotorStartPositions
-    )
-    {
+    protected void changeMachineSettings(String reflectorSet, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
         _reflectorPlate = reflectorSet;
         _plugboardConnections = createPlugboard(plugboardSettings);
         _rotorPositions = rotorStartPositions;
