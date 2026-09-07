@@ -11,7 +11,7 @@ public abstract class EnigmaMachine {
     protected String _reflectorPlate;
     protected HashMap<Character, Character> _plugboardConnections;
     protected Integer[] _rotorPositions;
-    protected Integer[] _chosenRotors;
+    private Integer[] _chosenRotors;
 
     protected void changeMachineSettings(String reflectorSet, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
         _reflectorPlate = reflectorSet;
@@ -20,7 +20,7 @@ public abstract class EnigmaMachine {
         _chosenRotors = chosenRotors;
     }
 
-    protected HashMap<Character, Character> createPlugboard(ArrayList<Tuple2<Character, Character>> plugboardSettings) {
+    private HashMap<Character, Character> createPlugboard(ArrayList<Tuple2<Character, Character>> plugboardSettings) {
         HashMap<Character, Character> plugboard = new HashMap<>();
 
         for (char letter : Constants.AlphabetList) {
@@ -65,7 +65,7 @@ public abstract class EnigmaMachine {
 
     protected abstract char encryptLetter(char letter);
 
-    protected boolean isNotched(int rotorIndex) {
+    private boolean isNotched(int rotorIndex) {
         int rotor = _chosenRotors[rotorIndex];
         int position = _rotorPositions[rotorIndex];
 
