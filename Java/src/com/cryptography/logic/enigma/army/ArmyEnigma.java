@@ -16,8 +16,6 @@ public class ArmyEnigma extends EnigmaMachine {
             "ESOVPZJAYQUIRHXLNFTGKDCMWB",
             "VZBRGITYUPSDNHLXAWMJQOFECK"
     };
-    public void changeMachineSettings(int chosenReflector, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
-        super.changeMachineSettings(ReflectorPlateSets[chosenReflector], plugboardSettings, rotorStartPositions, chosenRotors);
     public final HashMap<String, String> ReflectorPlateSets = new HashMap<>(
             Map.of(
                     "A", "EJMZALYXVBWFCRQUONTSPIKHGD",
@@ -26,6 +24,8 @@ public class ArmyEnigma extends EnigmaMachine {
             )
     );
 
+    public void changeMachineSettings(String chosenReflector, ArrayList<Tuple2<Character, Character>> plugboardSettings, int[] rotorStartPositions, int[] chosenRotors) {
+        super.changeMachineSettings(ReflectorPlateSets.get(chosenReflector), plugboardSettings, rotorStartPositions, chosenRotors);
 
         for (int i : chosenRotors)
             _rotors.add(RotorSets[i]);

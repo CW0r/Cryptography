@@ -35,8 +35,8 @@ public class NavyEnigma extends EnigmaMachine {
     private String _staticRotor;
     private int _staticRotorPosition;
 
-    public void changeMachineSettings(int chosenReflector, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] movingRotorStartPositions, Integer[] chosenMovingRotors, int chosenStaticRotor, int staticRotorStartPosition) {
-        super.changeMachineSettings(ReflectorPlateSets[chosenReflector], plugboardSettings, movingRotorStartPositions, chosenMovingRotors);
+    public void changeMachineSettings(String chosenReflector, ArrayList<Tuple2<Character, Character>> plugboardSettings, int[] movingRotorStartPositions, int[] chosenMovingRotors, int chosenStaticRotor, int staticRotorStartPosition) {
+        super.changeMachineSettings(ReflectorPlateSets.get(chosenReflector), plugboardSettings, movingRotorStartPositions, chosenMovingRotors);
 
         for (int i : chosenMovingRotors)
             _rotors.add(MovingRotorSets[i]);

@@ -10,10 +10,10 @@ public abstract class EnigmaMachine {
     protected ArrayList<String> _rotors = new ArrayList<>();
     protected String _reflectorPlate;
     protected HashMap<Character, Character> _plugboardConnections;
-    protected Integer[] _rotorPositions;
-    private Integer[] _chosenRotors;
+    protected int[] _rotorPositions;
+    private int[] _chosenRotors;
 
-    protected void changeMachineSettings(String reflectorSet, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
+    protected void changeMachineSettings(String reflectorSet, ArrayList<Tuple2<Character, Character>> plugboardSettings, int[] rotorStartPositions, int[] chosenRotors) {
         _reflectorPlate = reflectorSet;
         _plugboardConnections = createPlugboard(plugboardSettings);
         _rotorPositions = rotorStartPositions;
