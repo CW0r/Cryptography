@@ -5,6 +5,8 @@ import com.cryptography.logic.Tuple2;
 import com.cryptography.logic.enigma.EnigmaMachine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NavyEnigma extends EnigmaMachine {
     public final String[] MovingRotorSets = {
@@ -21,13 +23,15 @@ public class NavyEnigma extends EnigmaMachine {
             "LEYJVCNIXWPBQMDRTAKZGFUHOS",
             "FSOKANUERHMBTIYCWLQPZXVGJD"
     };
-    public final String[] ReflectorPlateSets = {
-            "EJMZALYXVBWFCRQUONTSPIKHGD",
-            "YRUHQSLDPXNGOKMIEBFZCWVJAT",
-            "FVPJIAOYEDRZXWGCTKUQSBNMHL",
-            "ENKQAUYWJICOPBLMDXZVFTHRGS",
-            "RDOBJNTKVEHMLFCWZAXGYIPSUQ"
-    };
+    public final HashMap<String, String> ReflectorPlateSets = new HashMap<>(
+            Map.of(
+                    "A", "EJMZALYXVBWFCRQUONTSPIKHGD",
+                    "B", "YRUHQSLDPXNGOKMIEBFZCWVJAT",
+                    "C", "FVPJIAOYEDRZXWGCTKUQSBNMHL",
+                    "Bt", "ENKQAUYWJICOPBLMDXZVFTHRGS",
+                    "Ct", "RDOBJNTKVEHMLFCWZAXGYIPSUQ"
+            )
+    );
     private String _staticRotor;
     private int _staticRotorPosition;
 

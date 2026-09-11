@@ -5,6 +5,8 @@ import com.cryptography.logic.Tuple2;
 import com.cryptography.logic.enigma.EnigmaMachine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ArmyEnigma extends EnigmaMachine {
     public final String[] RotorSets = {
@@ -14,14 +16,16 @@ public class ArmyEnigma extends EnigmaMachine {
             "ESOVPZJAYQUIRHXLNFTGKDCMWB",
             "VZBRGITYUPSDNHLXAWMJQOFECK"
     };
-    public final String[] ReflectorPlateSets = {
-            "EJMZALYXVBWFCRQUONTSPIKHGD",
-            "YRUHQSLDPXNGOKMIEBFZCWVJAT",
-            "FVPJIAOYEDRZXWGCTKUQSBNMHL"
-    };
-
     public void changeMachineSettings(int chosenReflector, ArrayList<Tuple2<Character, Character>> plugboardSettings, Integer[] rotorStartPositions, Integer[] chosenRotors) {
         super.changeMachineSettings(ReflectorPlateSets[chosenReflector], plugboardSettings, rotorStartPositions, chosenRotors);
+    public final HashMap<String, String> ReflectorPlateSets = new HashMap<>(
+            Map.of(
+                    "A", "EJMZALYXVBWFCRQUONTSPIKHGD",
+                    "B", "YRUHQSLDPXNGOKMIEBFZCWVJAT",
+                    "C", "FVPJIAOYEDRZXWGCTKUQSBNMHL"
+            )
+    );
+
 
         for (int i : chosenRotors)
             _rotors.add(RotorSets[i]);
